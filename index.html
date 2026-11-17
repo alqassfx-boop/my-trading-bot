@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Trading Bot</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;background:#080d18;color:#fff;
+ font-family:Arial,sans-serif;padding:20px;
+}
+.container{max-width:650px;margin:auto}
+header{display:flex;justify-content:space-between;align-items:center}
+h2{color:#19d69b}
+.muted{color:#94a3b8}
+.card{
+ background:#111b2c;border:1px solid #24334b;
+ border-radius:15px;padding:20px;margin-top:18px;
+}
+.status{text-align:center;padding:25px}
+.circle{
+ width:105px;height:105px;border:3px solid #18d69b;
+ border-radius:50%;display:grid;place-items:center;
+ margin:20px auto;font-size:35px;color:#18d69b;
+}
+.green{color:#19d69b}
+.red{color:#ff5265}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.value{font-size:23px;font-weight:bold;margin-top:9px}
+button{
+ border:0;border-radius:10px;padding:15px;
+ font-size:16px;font-weight:bold;cursor:pointer;
+ width:100%;color:white;
+}
+.start{background:#079c70}
+.stop{background:#e52d48}
+.buttons{display:flex;gap:12px;margin-top:20px}
+button:active{opacity:.75}
+.small{font-size:13px;color:#94a3b8}
+h3{margin-top:0}
+footer{text-align:center;color:#718096;margin:25px 0}
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+ <h2>MY TRADING BOT</h2>
+ <span class="green">● ONLINE</span>
+</header>
+
+<div class="card status">
+ <p class="muted">AUTOMATED TRADING SYSTEM</p>
+ <div class="circle" id="icon">◉</div>
+ <h2 id="status">BOT STOPPED</h2>
+ <p class="muted" id="message">Waiting to start demo bot</p>
+ <div class="buttons">
+  <button class="start" onclick="startBot()">START BOT</button>
+  <button class="stop" onclick="stopBot()">STOP BOT</button>
+ </div>
+ <p class="small">Demo dashboard only - no real trades</p>
+</div>
+
+<div class="card">
+ <h3>Account Information</h3>
+ <div class="grid">
+  <div>
+   <span class="muted">Platform</span>
+   <div class="value">MT5</div>
+  </div>
+  <div>
+   <span class="muted">Account</span>
+   <div class="value">DEMO</div>
+  </div>
+  <div>
+   <span class="muted">Balance</span>
+   <div class="value">$1,000</div>
+  </div>
+  <div>
+   <span class="muted">Profit</span>
+   <div class="value green">$0.00</div>
+  </div>
+ </div>
+</div>
+
+<div class="card">
+ <h3>Trading Settings</h3>
+ <p class="muted">Trading Market</p>
+ <div class="value">Forex / Gold / Crypto</div>
+ <p class="muted">Trading Mode</p>
+ <div class="value">Automatic (Demo)</div>
+ <p class="muted">Risk Management</p>
+ <div class="value">Not configured</div>
+</div>
+
+<div class="card">
+ <h3>Trading History</h3>
+ <p class="muted" id="history">No demo trades yet.</p>
+</div>
+
+<footer>
+ My Trading Bot © 2026
+ <p>Demo interface - trading engine not connected</p>
+</footer>
+
+</div>
+
+<script>
+function startBot(){
+ document.getElementById("status").innerText="BOT RUNNING";
+ document.getElementById("status").className="green";
+ document.getElementById("message").innerText="Demo mode active";
+ document.getElementById("icon").style.borderColor="#19d69b";
+ document.getElementById("icon").innerText="✓";
+ document.getElementById("history").innerText=
+ "Demo bot started. No real orders placed.";
+}
+function stopBot(){
+ document.getElementById("status").innerText="BOT STOPPED";
+ document.getElementById("status").className="red";
+ document.getElementById("message").innerText="Bot is currently stopped";
+ document.getElementById("icon").style.borderColor="#ff5265";
+ document.getElementById("icon").innerText="Ⅱ";
+ document.getElementById("history").innerText=
+ "Demo bot stopped. No real orders placed.";
+}
+</script>
+</body>
+</html>
